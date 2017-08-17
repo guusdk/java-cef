@@ -52,3 +52,4 @@ after_build:
 artifacts:
   - path: binary_distrib\jcef-%buildType%-distribution.zip
     name: jcef-%buildType%-distribution
+
