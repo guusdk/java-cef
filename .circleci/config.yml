@@ -1,5 +1,5 @@
 jobs:
-  build:
+  linux64:
 
     machine: true
 
@@ -34,6 +34,46 @@ jobs:
           name: Make distribution
           working_directory: tools
           command: ./make_distrib.sh linux64
+
+      - store_artifacts:
+          path: binary_distrib
+
+  linux32:
+
+    machine: true
+
+    environment:
+      - JAVA_HOME: /usr/lib/jvm/jdk1.8.0
+      - CFLAGS: -m32
+
+    steps:
+
+      - checkout
+
+      - run:
+          # The `jcef_build` directory name is required by other JCEF tooling  and should not be changed.
+          name: Create and enter the `jcef_build` directory.
+          command: mkdir jcef_build
+
+      - run:
+          name: Generate 64-bit Unix Makefiles.
+          working_directory: jcef_build
+          command: cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release ..
+
+      - run:
+          name: Build using Make.
+          working_directory: jcef_build
+          command: make -j4
+
+      - run:
+          name: Build the JCEF Java classes.
+          working_directory: tools
+          command: ./compile.sh linux32
+
+      - run:
+          name: Make distribution
+          working_directory: tools
+          command: ./make_distrib.sh linux32
 
       - store_artifacts:
           path: binary_distrib
