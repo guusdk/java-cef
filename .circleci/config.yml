@@ -78,9 +78,46 @@ jobs:
       - store_artifacts:
           path: binary_distrib
 
+  macos:
+
+    machine:
+      xcode:
+        version: 8.2
+
+    environment:
+      - JAVA_HOME: /usr/lib/jvm/jdk1.8.0
+
+    steps:
+
+      - checkout
+
+      - run:
+          # The `jcef_build` directory name is required by other JCEF tooling  and should not be changed.
+          name: Create and enter the `jcef_build` directory.
+          command: mkdir jcef_build
+
+      - run:
+          name: Generate 64-bit Xcode project files..
+          working_directory: jcef_build
+          command: cmake -G "Xcode" -DPROJECT_ARCH="x86_64" ..
+
+      - run:
+          name: Build using xcodebuild.
+          working_directory: jcef_build
+          command: xcodebuild
+
+      - run:
+          name: Make distribution
+          working_directory: tools
+          command: ./make_distrib.sh macos
+
+      - store_artifacts:
+          path: binary_distrib
+
 workflows:
   version: 2
-  build_and_test:
+  build:
     jobs:
       - linux64
       - linux32
+      - macos
