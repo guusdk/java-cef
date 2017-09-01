@@ -11,6 +11,14 @@ jobs:
           command: mkdir jcef_build
 
       - run:
+          name: locate javac
+          command: locate javac
+
+      - run:
+          name: which javac
+          command: which javac
+
+      - run:
           name: Generate 64-bit Unix Makefiles.
           working_directory: jcef_build
           command: cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release ..
