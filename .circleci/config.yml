@@ -12,15 +12,15 @@ jobs:
 
       - run:
           name: Generate 64-bit Unix Makefiles.
-          working_directory: ${CIRCLE_WORKING_DIRECTORY}/jcef_build
+          working_directory: jcef_build
           command: cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release ..
 
       - run:
           name: Build using Make.
-          working_directory: ${CIRCLE_WORKING_DIRECTORY}/jcef_build
+          working_directory: jcef_build
           command: make -j4
 
       - run:
           name: Make distribution
-          working_directory: ${CIRCLE_WORKING_DIRECTORY}/tools
+          working_directory: tools
           command: make_distrib.sh
