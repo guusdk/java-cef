@@ -26,6 +26,11 @@ jobs:
           command: make -j4
 
       - run:
+          name: Build the JCEF Java classes.
+          working_directory: tools
+          command: ./compile.sh linux64
+
+      - run:
           name: Make distribution
           working_directory: tools
           command: ./make_distrib.sh linux64
