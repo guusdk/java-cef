@@ -1,0 +1,26 @@
+jobs:
+  build:
+    machine: true
+    steps:
+
+      - checkout
+
+      - run:
+          # The `jcef_build` directory name is required by other JCEF tooling  and should not be changed.
+          name: Create and enter the `jcef_build` directory.
+          command: mkdir jcef_build
+
+      - run:
+          name: Generate 64-bit Unix Makefiles.
+          working_directory: $CIRCLE_WORKING_DIRECTORY/jcef_build
+          command: cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release ..
+
+      - run:
+          name: Build using Make.
+          working_directory: $CIRCLE_WORKING_DIRECTORY/jcef_build
+          command: make -j4
+
+      - run:
+          name: Make distribution
+          working_directory: $CIRCLE_WORKING_DIRECTORY/tools
+          command: make_distrib.sh
