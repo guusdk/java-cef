@@ -97,11 +97,6 @@ jobs:
           command: mkdir jcef_build
 
       - run:
-          name: Listing cmake generators
-          working_directory: jcef_build
-          command: cmake
-
-      - run:
           name: Generate 64-bit Xcode project files..
           working_directory: jcef_build
           command: cmake -G "Xcode" -DPROJECT_ARCH="x86_64" ..
@@ -124,5 +119,7 @@ workflows:
   build:
     jobs:
       - linux64
-      - linux32
-      - macos
+      ## Fails for not having 32-tooling 
+      #- linux32
+      ## linux/mac in one workflow is a todo for circleci: https://circleci.com/docs/2.0/faq/#do-you-plan-to-add-the-ability-to-launch-jobs-on-both-linux-and-mac-environments-in-the-same-workflow
+      #- macos
