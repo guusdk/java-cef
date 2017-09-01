@@ -11,12 +11,13 @@ jobs:
           command: mkdir jcef_build
 
       - run:
-          name: locate javac
-          command: locate javac
-
-      - run:
           name: which javac
           command: which javac
+
+      - run:
+          name: locate javac
+          command: updatedb && locate javac
+
 
       - run:
           name: Generate 64-bit Unix Makefiles.
