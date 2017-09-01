@@ -99,7 +99,7 @@ jobs:
       - run:
           name: Generate 64-bit Xcode project files..
           working_directory: jcef_build
-          command: cmake -G "Xcode" -DPROJECT_ARCH="x86_64" ..
+          command: cmake -G "XCode" -DPROJECT_ARCH="x86_64" ..
 
       - run:
           name: Build using xcodebuild.
