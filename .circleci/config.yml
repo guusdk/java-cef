@@ -35,6 +35,11 @@ jobs:
           working_directory: tools
           command: ./make_distrib.sh linux64
 
+      - run:
+          name: Create distribution archive
+          working_directory: binary_distrib
+          command: tar -zcf jcef-linux64-distribution.zip linux64
+
       - store_artifacts:
           path: binary_distrib
 
@@ -75,6 +80,11 @@ jobs:
           working_directory: tools
           command: ./make_distrib.sh linux32
 
+      - run:
+          name: Create distribution archive
+          working_directory: binary_distrib
+          command: tar -zcf jcef-linux32-distribution.zip linux32
+
       - store_artifacts:
           path: binary_distrib
 
@@ -110,6 +120,11 @@ jobs:
           name: Make distribution
           working_directory: tools
           command: ./make_distrib.sh macos
+
+      - run:
+          name: Create distribution archive
+          working_directory: binary_distrib
+          command: tar -zcf jcef-macos-distribution.zip macos
 
       - store_artifacts:
           path: binary_distrib
