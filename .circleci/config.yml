@@ -12,11 +12,11 @@ jobs:
 
       - run:
           name: which javac
-          command: which javac
+          command: ls -als `which javac`
 
       - run:
-          name: locate javac
-          command: updatedb && locate javac
+          name: find javac
+          command: find / -name javac
 
 
       - run:
