@@ -28,4 +28,4 @@ jobs:
       - run:
           name: Make distribution
           working_directory: tools
-          command: make_distrib.sh
+          command: ./make_distrib.sh
