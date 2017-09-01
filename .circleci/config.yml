@@ -1,6 +1,11 @@
 jobs:
   build:
+
     machine: true
+
+    environment:
+      - JAVA_HOME: /usr/lib/jvm/jdk1.8.0
+
     steps:
 
       - checkout
@@ -9,15 +14,6 @@ jobs:
           # The `jcef_build` directory name is required by other JCEF tooling  and should not be changed.
           name: Create and enter the `jcef_build` directory.
           command: mkdir jcef_build
-
-      - run:
-          name: which javac
-          command: ls -als `which javac`
-
-      - run:
-          name: find javac
-          command: find / -name javac
-
 
       - run:
           name: Generate 64-bit Unix Makefiles.
