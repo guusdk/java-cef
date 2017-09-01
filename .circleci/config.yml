@@ -58,7 +58,7 @@ jobs:
       - run:
           name: Generate 32-bit Unix Makefiles.
           working_directory: jcef_build
-          command: cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release ..
+          command: cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS=-m32 -DCMAKE_C_FLAGS=-m32 .. 
 
       - run:
           name: Build using Make.
