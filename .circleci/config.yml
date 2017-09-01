@@ -56,7 +56,7 @@ jobs:
           command: mkdir jcef_build
 
       - run:
-          name: Generate 64-bit Unix Makefiles.
+          name: Generate 32-bit Unix Makefiles.
           working_directory: jcef_build
           command: cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release ..
 
