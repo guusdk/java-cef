@@ -3,6 +3,8 @@
 # reserved. Use of this source code is governed by a BSD-style license
 # that can be found in the LICENSE file.
 
+set -o xtrace
+
 if [ -z "$1" ]; then
   echo "ERROR: Please specify a build target: linux32, linux64 or macosx64"
 else

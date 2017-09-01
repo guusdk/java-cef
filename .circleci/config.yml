@@ -29,3 +29,6 @@ jobs:
           name: Make distribution
           working_directory: tools
           command: ./make_distrib.sh linux64
+
+      - store_artifacts:
+          path: binary_distrib
