@@ -1,5 +1,5 @@
 jobs:
-  linux64:
+  build:
 
     machine: true
 
@@ -38,7 +38,7 @@ jobs:
       - store_artifacts:
           path: binary_distrib
 
-  linux32:
+  build:
 
     machine: true
 
