@@ -1,3 +1,5 @@
+version: 2
+
 jobs:
   linux64:
 
@@ -134,7 +136,5 @@ workflows:
   build:
     jobs:
       - linux64
-      ## Fails for not having 32-tooling 
-      #- linux32
-      ## linux/mac in one workflow is a todo for circleci: https://circleci.com/docs/2.0/faq/#do-you-plan-to-add-the-ability-to-launch-jobs-on-both-linux-and-mac-environments-in-the-same-workflow
-      #- macos
+      - linux32
+      - macos
