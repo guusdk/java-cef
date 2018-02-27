@@ -63,8 +63,9 @@ jobs:
           command: mkdir jcef_build
 
       - run:
-          name: Add cross-compiler support.
-          command: sudo apt-get update; sudo apt-get install gcc-multilib
+          name: Add multi-arch support.
+          command: sudo dpkg --add-architecture i386; sudo apt-get update; sudo apt-get dist-upgrade
+
       - run:
           name: Generate 32-bit Unix Makefiles.
           working_directory: jcef_build
