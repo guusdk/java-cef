@@ -58,10 +58,13 @@ jobs:
       - checkout
 
       - run:
-          # The `jcef_build` directory name is required by other JCEF tooling  and should not be changed.
+          # The `jcef_build` directory name is required by other JCEF tooling and should not be changed.
           name: Create and enter the `jcef_build` directory.
           command: mkdir jcef_build
 
+      - run:
+          name: Add cross-compiler support.
+          command: sudo apt-get update; sudo apt-get install gcc-multilib
       - run:
           name: Generate 32-bit Unix Makefiles.
           working_directory: jcef_build
