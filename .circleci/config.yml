@@ -55,16 +55,16 @@ jobs:
 
     steps:
 
+      - run:
+          name: Add multi-arch support
+          command: sudo dpkg --add-architecture i386; sudo apt-get update; sudo apt-get install gcc-multilib libstdc++6:i386
+
       - checkout
 
       - run:
           # The `jcef_build` directory name is required by other JCEF tooling and should not be changed.
           name: Create and enter the `jcef_build` directory.
           command: mkdir jcef_build
-
-      - run:
-          name: Add cross-compiler support.
-          command: sudo apt-get update; sudo apt-get install libstdc++6:i386 libgcc1:i386 zlib1g:i386 libncurses5:i386
 
       - run:
           name: Generate 32-bit Unix Makefiles.
@@ -139,6 +139,6 @@ workflows:
   version: 2
   build:
     jobs:
-      - linux64
+      #- linux64
       - linux32
-      - macos
+      #- macos
