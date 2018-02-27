@@ -57,7 +57,7 @@ jobs:
 
       - run:
           name: Add multi-arch support
-          command: sudo dpkg --add-architecture i386; sudo apt-get update; sudo apt-get install gcc-multilib libstdc++6:i386
+          command: sudo dpkg --add-architecture i386; sudo apt-get update; sudo apt-get install build-essential:i386
 
       - checkout
 
