@@ -24,7 +24,7 @@ deploy:
   provider: releases
   api_key:
     secure: "iPHCr0hRkNaWWZIHfB5piqIsExGNxT0gWFZZ4PAsQmnn1DJNJhR58bx6N4YjzVi5M08EAasrVgDLn289Z0PCQrxkYjaf9DwPAATrPE+McGAydVWlOWbVLmqhaXIXkocrTWXRwAkQOKmVbpAh2d4I15MQ19o/u3dOfx7RqAgVc4ngYplmPEYOK7zzHw4xxKSvGEHdHl6G5PYmVXi+esVhwNjOEkFmRTq95zVCUWTqSfabP9aMk0p8agh7KgEsz6Kc/AayhLFiTUU2O3cdiQsGq9f9eGNZaf0YGbZ3Y2lcS2V9jjAWj8C14eeKw+nZRdY4uuTPYohW6lSIm20DBopUEY56x1j6YTu0AruVxslZaYAYfqDsFlXgxXKjGNoWB0lIDy8ARzosXl3EP1ypHki+8Sewt2Nn7fofn/1ROkXbv466Dwxqy3SvSeW100CdHMlqvgEYXxj65oh2KJPVnvMdC5t2cLTRmqc0KsxMGVDPACfXo5iny/A/H+CQpH/96Y/xWSJPY7odwkwgz8fAGYC3IuVOsueUrjJKfVAiQutGyro1UWXFFE+rv90zPaqplOaZucfXIqK9FB+9lzgny5M/3Anha2VosPIniQ9j+JL2w4pFywhcVnuOAD0naR4wc48aB/CncPTyhIhNZGehP3icpQLuu2/b9K+MInEM7t8w1pc="
-  file: "src/binary_distrib/jcef-linux64-distribution.tar.gz"
+  file: "jcef-linux64-distribution.tar.gz"
   skip_cleanup: true
 #  on:
 #    tags: true
