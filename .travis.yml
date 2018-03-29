@@ -1,0 +1,21 @@
+language: cpp
+
+matrix:
+  include:
+    - os: linux
+      dist: trusty
+    - os: osx
+
+before_install:
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install ant; fi
+
+before_script:
+ - git clone https://bitbucket.org/chromiumembedded/java-cef.git src
+ - cd src && mkdir jcef_build && cd jcef_build
+
+script:
+ - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release .. ; fi
+ - if [[ "$TRAVIS_OS_NAME" != "linux" ]]; then cmake -G "Unix Makefiles" -DPROJECT_ARCH="x86_64" -DCMAKE_BUILD_TYPE=Release .. ; fi
+ - make -j4
+ - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cd ../tools && ./compile.sh linux64 && ./make_distrib.sh linux64 ; fi
+ - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cd ../binary_distrib && tar -zcf jcef-linux64-distribution.tar.gz linux64 ; fi
