@@ -54,15 +54,15 @@ artifacts:
     name: jcef-%buildType%-distribution
 
 deploy:
-  release: jcef-v$(appveyor_build_version)
-  description: 'Release description'
+  release: java-cef_$(APPVEYOR_REPO_TAG_NAME)
+  description: 'Automated release of the Java Chromium Embedded Framework based on source code in tag $(APPVEYOR_REPO_TAG_NAME).'
   provider: GitHub
   auth_token:
     secure: Qzp7COoye1K4zRA1krCBZ4Xosn2SJ4XQfjfHLkbqEvLQ734LAwZP+SuHXCLt1dR3
   artifact: jcef-%buildType%-distribution
-  draft: true
+  draft: false
   prerelease: false
   on:
-    branch: master                 # release from master branch only
-    #appveyor_repo_tag: true        # deploy on tag push only
+    branch: master
+    appveyor_repo_tag: true # deploy on tag push only
 
