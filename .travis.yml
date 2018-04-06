@@ -18,9 +18,9 @@ before_script:
  - export GIT_COMMIT_SHORT_HASH="$(git rev-parse --short HEAD)"
  - export JCEF_VERSION="$JCEF_MAJOR_VERSION.$CHROMIUM_BRANCH.$GIT_COMMITS_ON_BRANCH.g$GIT_COMMIT_SHORT_HASH"
  - export TRAVIS_TAG="$JCEF_VERSION"
- - echo "Building JCEF-version $TRAVIS_TAG"
-
+ 
 script:
+ - echo "Building JCEF-version $TRAVIS_TAG"
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release .. ; fi
  - if [[ "$TRAVIS_OS_NAME" != "linux" ]]; then cmake -G "Unix Makefiles" -DPROJECT_ARCH="x86_64" -DCMAKE_BUILD_TYPE=Release .. ; fi
  - make -j4
